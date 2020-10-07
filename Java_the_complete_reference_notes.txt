@@ -1,0 +1,108 @@
+Chapter 1 - The history and evolution of Java
+    -> Much of the characteristics of Java is derived from C and C++
+    -> Trade-offs done while designing a computer language
+        * Ease of use versus power
+        * Safety versus efficiency
+        * Rigidity versus extensiblity
+    -> OOP is a programming methodology that helps organize complex programs through the use of inheritance, encapsulation and polymorphism.
+    -> Java was conceived by James Gosling, Patrick Naughton, Chris Warth, Ed Frank and Mike Sheridan at the Sun Microsystems in 1991.
+    -> It took 18 months to develope the first working version of Java.
+    -> Initially named "Oak", in 1995 it was renamed "Java".
+    -> Architecture-neutral programming languages like Java became a priority over efficiency with the begin of World Wide Web. This was Java's large-scale success.
+    -> Java isnt the enchanced version and also it doesnt replace C++
+    -> An applet is a special program that is transmitted over the internet and automatically executed inside a Java-compatible web browser. This locally ran on the client side rather than the server.
+    -> Applets became less important and was removed in JDK 11.
+    -> The risk of running a networked program was confined to the Java execution environment and prevented it from accessing other parts of the computer.
+    -> The bytecode allowed Java to solve both the security and the portability problems. Bytecode is a highly optimized set of instructions designed to be executed by what is called the Java Virtual Machine(JVM), which is a part of JRE.
+    -> By allowing the JVM to execute, it can create a restricted execution environment(sandbox), preventing unautherised access to the machine.
+    -> Although Java is an interpreted language, nothing can prevent on the fly compilation. HotSpot technology provided a Just In Time(JIT) compiler for bytecode where selected portions of bytecode are compiled into executable code in real time while the rest is simpley interpreted.
+    -> Java versions are released every six months being March and September.
+    -> A servlet is a small program that executes on the server.
+    -> Deallocation is completely automatic, because Java provides garbage collection for unused objects. Hence Java manages memory allocation and deallocation for you.
+    -> Buzzwords in Java -
+        * Simple
+        * Object-Oriented
+        * Robust
+        * Multithreaded
+        * Architecture-Neutral
+        * Interpreted and High performance
+        * Distributed
+        * Dynamic
+    ->In JDK 11, JavaFX is no longer included in the JDK. Instead, this GUI framework has become a separate open-source project.
+
+Chapter 2 - An Overview of Java
+    -> An object-oriented program can be characterized as data controlling access to code whereas in process-oriented model code acts on data.
+    -> Hierarchical abstraction of complex systems is applied in Java.
+    -> A class defines the structure and behavior(data and code) that will be shared by a set of objects
+    -> Each object of a given class contains the structure and behavior defined by the class. Hence objects are referred to as instances of a class.
+    -> The data defined by the class are referred to as member variables or instance variables.
+    -> The code that operates on that data is referred to as member methods or just methods.
+    -> The private methods and data can only be accessed by code that is a member of the class
+    -> Three OOP Principles are - 
+        * Encapsulation - Encapsulation is the mechanism that binds together code and the data it manipulates and keeps both safe from outside interference and misuse. Access to the code and data inside the wrapper is tightly controlled through a well-defined interface.
+        * Inheritance - It is the process by which one object acquires the properties of another object.
+        * Polymorphism - It is a feature that allows one interface to be used for a general class of actions.
+    -> In Java, a source file is officially called a compilation unit.
+    -> The Java compiler requires that a source file use the .java filename extension.
+    -> There are two ways of commenting(comments are non-executable statements) in Java -
+        * Single-line comment
+        * Multi-line comment
+    -> Break down of public static void main(String[] args) {}
+        * main() is a special function where the execution of the program begins from it.
+        * The public keyword is a access modifier, which allows the programmer to control the visibility of class members.
+        * The keyword static allows main() to be called wihtout having to instantiate a particular instance of the class. This is necessary since main() is called by the Java Virtual Machine before any object is created.
+        * void tells the compiler that main() doesnt return a value.
+        * args is an array of instances of the class String. This identifier receives any command-line arguments present when the program is executed.
+        * In System.out.println(), System is a predefined class that provides access to the system and out is the output stream that is connected to the console.
+    -> Condition is a boolean expression.(A boolean expression is on that evaluates to either true or false)
+    -> There are nearly 61 keywords defined in Java till now
+
+Chapter 3 - Data Types, Variables and Arrays
+    -> Java is a strongly typed language.
+    -> There are eight primitive types of data: byte, short, int, long, char, float, double and boolean.
+    -> The primitive types in Java are not object-oriented due to performance degradation.
+    -> Java doesnt support unsigned, positive-integers only.
+    -> The range of char is 0 to 65536 and is 16 bit type.
+    -> Underscores can be used to separate digits. These underscores will be ignored.
+    -> In Java, the floating-point literals default to double precision and integer literals default to int precision.
+    -> The scope rules provide the foundation for encapsulation.
+    -> A variable declared within a block is called a local variable.
+    -> Each time a block of code is created, a new scope is defined. Anything declared within it will be valid only in it.
+    -> Truncating is the type conversion when a floating-point is assigned to an integer.
+    -> Arrays are a group of like-typed variables referred by a common name.
+    -> Jagged array is a 2D array with variable columns.
+        ex:
+            int[][] arr = new int[3][];
+            arr[0] = new int[3];
+            arr[1] = new int[2];
+            arr[2] = new int[6];
+    -> In JDK 10, it is possible to use var keyword in Java
+        var avg = 50.6;
+    -> While using var to declare an array,
+        var arr = new int[5]; // right
+        var[] arr = new int[6]; // wrong
+        var arr = {1,5,3,2}; // wrong
+    -> var can be used only to declare local variables. It cant be used when declaring instance variables, parameters or return types.
+
+Chapter 4 - Operators
+    -> Most of its operators can be divided into the following four groups: arithmetic, bitwise, relational and logical
+    -> Arithmetic compound addignment operators -
+        > a += 4; or a = a + 4;
+        > a %= 5; or a = a % 5;
+    -> Post-fix and pre-fix operators are different when used in larger expressions
+    -> In the prefix form, the operand is incremented or decremented before the value is obtained for use in the expression.
+        >x = 43;
+        >y = x++; // y = 43
+        is equivalent to 
+        >y = x;
+        >x = x + 1;
+    -> In the postfix form, the previous value is obtained for use in the expression and then the operand is modified.
+        >x = 43;
+        >y = ++x; // y = 44
+        is equivalent to 
+        >x = x + 1;
+        >y=x;
+    -> The bit wise operators can be applied to : long, int, short, char and byte
+    -> Learn left shift, right shift, negative numbers converted to binary, 1's complement and 2's complement
+    -> The outcome of relational operators is a boolean value.
+    -> In C/C++, true is any non zero value and false is zero
