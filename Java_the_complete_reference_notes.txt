@@ -106,3 +106,107 @@ Chapter 4 - Operators
     -> Learn left shift, right shift, negative numbers converted to binary, 1's complement and 2's complement
     -> The outcome of relational operators is a boolean value.
     -> In C/C++, true is any non zero value and false is zero
+
+Chapter 5 - Control statements
+    -> Java's program control statements can be put into the following categories:
+        * Selection - allow your program to choose different paths of execution based upon the outcome of an expression or state of a variable
+        * Iteration - enable program execution to repeat one or more statements.
+        * Jump - allow your program to execute in a nonlinear fashion.
+    -> Java supports two selection statements: if  and switch
+    -> The condition is any expression that returns a boolean value.
+    -> The default statement in switch is optional.
+    -> If you need to select among a large group of values, a switch statement will run much faster than the equivalent logic coded using a sequence of if-else's.
+    -> Java's iteration statements are for, while, and do-while.
+    -> The body of the while can be empty. This is because a null statement(one that consists only of a semicolon)
+        >while(++i<j--); // no body in this loop
+    -> The do-while loop always executes the loop atleast once irrespective of the condition.
+    -> The do-while loop is useful when you process a menu selection.
+    -> System.in.read() can be used to obtain the user's choice. It return integers hence casting to char in the example below.
+        >char choice = (char) System.in.read();
+    -> If using System.in.read(), the program must specify the throws java.io.IOException clause.
+    -> Either the initialization or the iteration expression or both may be absent in a for loop.
+    -> By not filling in any parameters in for loop, you can create an infinite loop;
+    -> For each style loop is designed to cycle through a collection of objects, such as an array.
+        * syntax:
+            >for(type itr-var : collection) statement block;
+        * example 1(1D array):
+            >int num[] = {1,2,3,4,5,6,7,8,9};
+            >int sum = 0;
+            >for(int x:sum) sum+=x; // sum of all elements
+        * example 2(2D array):
+            >int num[][] = {{1,2,3},{1,2,4},{5,6,7}};
+            >int sum = 0;
+            >for(int x[]:num) {
+                for(int y:x) {
+                    sum += y;
+                }
+             } 
+    -> For each loop is an excellent choice for searching an unsorted array as it has to go through in sequence.
+    -> Java supports three jump statements: break,continue, and return. Java also supports another jump statement i.e exception handling.
+    -> Break statement can only break out of one loop.
+    -> Break statement can be used as goto statements by using labeled break;
+    -> A common use of labeled break statement is to exit from nested loops.
+    -> The label should enclose the labeled break to work else it throws an error.
+    -> Continue statement causes control to be transferred directly to the conditional expression that controls the loop.
+    -> Return causes program control to transfer back to the caller fo the method.
+
+Chapter 6 - Introducing Classes
+    -> A class is a template for an object and an object is an instance of a class.
+    -> The data or variables defined within a class are called instance variables and the code is contained within methods. Collectively both are called members of the class.
+    -> Variables defined within a class are called instance variables because each instance of the class contains its own copy of these variables.
+    -> Example:
+        class Box{
+            double width;
+            double height;
+            double depth;
+
+            double volume() {
+                double vol = myBox.width * myBox.height * myBox.width;
+                return vol;
+            }
+        }
+        class BoxDemo{
+            public static void main(String[] args) {
+                Box myBox = new Box();
+                myBox.width = 10;
+                myBox.height = 5;
+                myBox.width = 5;
+
+                System.out.println(myBox.volume());
+            }
+        }
+        * The new data type is called Box. One can use this to declare objects of type Box.
+        * myBox will refer to an instance of Box.
+        * To access the variables, use dot(.) operator. The dot operator links the name of the object with the name of an instance variable.
+        * The class name followed by parenthese specifies the constructor for the class.
+    -> The new operator dynamically allocates memory for an object and returns a reference to it.
+    -> Box b1 = new Box();
+       Box b2 = b1;
+       b1 = null;
+       * b1 and b2 will both refer to the same onject. b2 wasnt allocated any memory or copy any part of the b1 object.
+       * When you assigned b1 to null it unhooks b1 from the original object without affecting the object or affecting b2.
+    -> A constructor initializes an object immediately upon creation. It has no return type.
+    -> When using the default constructor, all non-initialized instance variables will have their default values, which is zero, null, and false.
+    -> Example(parameterized constructor)
+        class Box {
+            double width;
+            double height;
+            double depth;
+
+            //Parameterized constructor
+            Box(double width, double height, double depth) {
+                // this lets your refer directly to the object, hence resolving any namespace collisions that might occur between instance variable and local variables
+                this.width = width; 
+                this.height = height;
+                this.depth = depth;
+            }
+        }
+        class BoxDemo {
+            public static void main(String[] args) {
+                Box myBox1 = new myBox(10,20,10);
+                Box myBox2 = new myBox(5,4,3);
+            }
+        }
+    -> this can be used inside any method to refer to the current object(this is always a reference to the object on which the method was invoked).
+    -> Once the objects are created, deallocation of the memory is handled automatically. The technique that accomplishes this is called garbage collection.
+    -> A stack stores data using first-in, last-out ordering.
