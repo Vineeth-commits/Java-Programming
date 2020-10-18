@@ -210,3 +210,107 @@ Chapter 6 - Introducing Classes
     -> this can be used inside any method to refer to the current object(this is always a reference to the object on which the method was invoked).
     -> Once the objects are created, deallocation of the memory is handled automatically. The technique that accomplishes this is called garbage collection.
     -> A stack stores data using first-in, last-out ordering.
+
+Chapter 7 - A Closer Look at Methods and Classes
+    -> Method overloading is to define two or more methods within the same class that share the same name, as long as the parameters are different.
+    -> Method overloading is one of the ways that Java supports polymorphism
+    -> Java will employ its automatic type conversions only if no exact match is found in method overloading.
+    -> In practice, overloading must be done for closely related operations.
+    -> Objects can be passed as parameters in a method or constructor.
+    -> In call by value, variables used in the call have no effect on them.
+    -> In Java, pbjects are passed by what is effectively call-by-reference.
+    -> All objects are dynamically alloted using new, you dont need to worry about an object going out-of-scope because the method in which it was created terminates.
+    -> The object will continue to exist as long as there is a reference to it somewhere in your program.
+    -> A method that calls itself is said to be recursive.
+    -> Encapsulation provides another important attribute - access control
+    -> A package is a group of Classes
+    -> Java's access modifiers are public, private and protected. It also defines a default access level.
+    -> protected applies only when inheritance is involved.
+    -> When a member of a class is modified by public, then that member can be accessed by any other code.
+    -> When a member of a class is specified as private, then that member can only be accessed by other members of its class.
+    -> Since Java run-time system(outside the program) accesses the main() method, it is specified as public.
+    -> When no access modifier is used, then by default the member of a class is public within its own package, but cant be accessed outside of its package.
+    -> Using static keyword, it is possible to create a member that can be used by itself, without reference to a specific instance.
+    -> main() is declared ass static because it must be called before any objects exist.
+    -> Methods declared as static have several restictions:
+        * They can only directly call other static methods of their class.
+        * They can only directly access static variables of their class.
+        * They cant refer to this or super in any way.
+    -> Instance variables declared as static are, essentially global variables.
+    -> Example of static variables, methods and blocks:
+        class UseStatic {
+            static int a = 3;
+            static int b;
+            static void meth(int x) {
+                System.out.println("x = "+x);
+                System.out.println("a = "+a);
+                System.out.println("b = "+b);
+            }
+            static {
+                System.out.println("Static block initialized");
+                b = a * 4;
+            }
+            public static void main(String[] args) {
+                meth(42);
+            } 
+        }
+        // All the static statements are run.Then main() method is called, which calls meth(42).
+    -> To access the static methods and variables, we use a general format -
+        classname.method();
+            or
+        classname.variable;
+        Example:
+            class StaticDemo {
+                static int a = 43;
+                static int b = 55;
+                static void callme() {
+                    System.out.println("a = "+a);
+                }
+            }
+            class StaticByName {
+                public static void main(String args[]) {
+                    StaticDemo.callme();
+                    System.out.println("b = "+StaticDemo.b);
+                }
+            }
+    -> final keyword modifies making it a constant.
+    -> It is possible to define a class within another class; such classes are known as nested classes.
+    -> A nested class has access to the members, including privae members, of the class in which it is nested. However, the enclosing class does not have access to the members of the nested class.
+    -> There are two types of nested classes: static and non-static.
+    -> A static nested class must access the non-static memebers of its enclosing class through an object.
+    -> A nested class can be wrapped in a loop.
+    -> Every string created is actually an object of type String.
+    -> String are immutable; once a string is created, its contents cant be altered.
+    -> StringBuffer and StringBuilder allow strings to be altered.
+    -> The String class contains several methods -
+        boolean equals(second Str) - test equality of two strings
+        int length() - length of the string
+        charAt(index) - obtain specific index of a string
+    -> To access the command-line arguments inside a Java program is quite easy - they are stored as strings in a String array passed to the args parameter of main().
+    -> The first command-line argument is stored at args[0], second at args[1] and so on.
+    -> A method that takes variable number of argumentsis called a variable-arity method or varargs methods.
+    -> A variable-length argument is specified by three periods(...).
+        Example:
+            class VarArgs {
+                static void vaTest (int ... v) {
+                    System.out.println("Number of args: "+ v.length + " Contents: ");
+                    for(int x:v){
+                        System.out.println(x+"");
+                    }
+                }
+                public static void main(String args[]) {
+                    vaTest(10);
+                    vaTest(1,2,4);
+                    vaTest();
+                }            
+            }
+    -> The syntax ... tells the compiler that a variable number of arguments will be used and that these arguments will be stored in the array referred to by v.
+    -> The variable length parameter must be the last parameter declared by the method.
+    -> There should also be only one varargs parameter.
+    -> Local variable type inference (var) can be used with reference type.
+        * var myStr = "This is a string";
+        * FileInputStream fin = new FileInputStream("Test.txt");
+                        or
+          var fin = new FileInputStream("Text.txt");
+        * var ob = new Myclass();
+    
