@@ -212,13 +212,13 @@ Chapter 6 - Introducing Classes
     -> A stack stores data using first-in, last-out ordering.
 
 Chapter 7 - A Closer Look at Methods and Classes
-    -> Method overloading is to define two or more methods within the same class that share the same name, as long as the parameters are different.
+    -> Method overloading is used to define two or more methods within the same class that share the same name, as long as the parameters are different.
     -> Method overloading is one of the ways that Java supports polymorphism
     -> Java will employ its automatic type conversions only if no exact match is found in method overloading.
     -> In practice, overloading must be done for closely related operations.
     -> Objects can be passed as parameters in a method or constructor.
     -> In call by value, variables used in the call have no effect on them.
-    -> In Java, pbjects are passed by what is effectively call-by-reference.
+    -> In Java, objects are passed by what is effectively call-by-reference.
     -> All objects are dynamically alloted using new, you dont need to worry about an object going out-of-scope because the method in which it was created terminates.
     -> The object will continue to exist as long as there is a reference to it somewhere in your program.
     -> A method that calls itself is said to be recursive.
